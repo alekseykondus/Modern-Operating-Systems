@@ -32,8 +32,8 @@ double* RunExperiment_MmapIO(){
 double* RunExperiment_SharedIO(){
     shm_t *ptr = shm_new((PACKET_SIZE + 8) * sizeof(uint8_t));
     SharedIO io1, io2;
-    SharedIO_init(&io1, ptr, 0);
-    SharedIO_init(&io2, ptr, 1);
+    SharedIO_init(&io1, ptr, 1);
+    SharedIO_init(&io2, ptr, 2);
     double* result = run_benchmark_SharedIO("shares_io", &io1, &io2);
     shm_del(ptr);
     return result;

@@ -153,6 +153,7 @@ double* run_benchmark_MmapIO(const char *name, MmapIO *io_first, MmapIO *io_seco
     printf("Starting benchmark for method: %s\n", name);
     int p = fork();
     if (p == 0) {
+        // child
         uint8_t data[PACKET_SIZE];
         int data_size;
         do {

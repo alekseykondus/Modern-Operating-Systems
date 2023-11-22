@@ -10,7 +10,7 @@
 
 const char *SOCKET_FILE = "socket";
 const int SOCKET_PORT = 1234;
-const int PACKET_SIZE = 4096;
+const int PACKET_SIZE = 40960000;
 
 #define DEBUG false
 
@@ -181,13 +181,13 @@ void print_table_of_experiments(const char *type_of_socket, double *opening_time
 
 int main(int argc, char *argv[]) {
     int number_of_experiments = 10,
-        number_of_packages = 1;
+            number_of_packages = 1;
 
     char type_of_socket[] = "UNIX";
     double *opening_time = (double *)malloc(number_of_experiments * sizeof(double)),
-           *sending_data_time = (double *)malloc(number_of_experiments * sizeof(double)),
-           *closing_time = (double *)malloc(number_of_experiments * sizeof(double));
-     int   *data_quantity = (int *)malloc(number_of_experiments * sizeof(int));
+            *sending_data_time = (double *)malloc(number_of_experiments * sizeof(double)),
+            *closing_time = (double *)malloc(number_of_experiments * sizeof(double));
+    int   *data_quantity = (int *)malloc(number_of_experiments * sizeof(int));
 
     for(int i = 0; i < number_of_experiments; ++i) {
         int socket_file_descriptor = 0;
